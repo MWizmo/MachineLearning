@@ -67,13 +67,7 @@ x_border = np.linspace(0, 100, 100)
 y_border = (-theta_optimized[0] - (theta_optimized[1] * x_border)) / theta_optimized[2]
 
 plotData(old_X, y, 'Exam 1 score', 'Exam 2 score', 'Admitted', 'Not Admitted', x_border, y_border)
-
-# Предположим, студент имеет оценки Exam 1 - 45 и Exam 2 - 85, найдите его
-# вероятность поступить. (должно получится 0.776)
-
 print("Вероятность поступить: ", predict([45, 85], theta_optimized))
-
-# Оцените точность классификатора
 right = 0
 for row in data:
     if predict([row[0], row[1]], theta_optimized) > 0.5 and row[2] == 1.0:
