@@ -16,6 +16,30 @@ params = []
 C_values = [0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30, 100]
 gamma_values = [0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30, 100]
 
+svmclassifier = svm.SVC(kernel='rbf', C=1, gamma=1)
+svmclassifier.fit(X, y)
+mglearn.plots.plot_2d_separator(svmclassifier, X, eps=.05)
+mglearn.discrete_scatter(X[:, 0], X[:, 1], y)
+plt.show()
+
+svmclassifier = svm.SVC(kernel='rbf', C=1, gamma=100)
+svmclassifier.fit(X, y)
+mglearn.plots.plot_2d_separator(svmclassifier, X, eps=.05)
+mglearn.discrete_scatter(X[:, 0], X[:, 1], y)
+plt.show()
+
+svmclassifier = svm.SVC(kernel='rbf', C=100, gamma=100)
+svmclassifier.fit(X, y)
+mglearn.plots.plot_2d_separator(svmclassifier, X, eps=.05)
+mglearn.discrete_scatter(X[:, 0], X[:, 1], y)
+plt.show()
+
+svmclassifier = svm.SVC(kernel='rbf', C=1000, gamma=100)
+svmclassifier.fit(X, y)
+mglearn.plots.plot_2d_separator(svmclassifier, X, eps=.05)
+mglearn.discrete_scatter(X[:, 0], X[:, 1], y)
+plt.show()
+
 for c in C_values:
     for gamma in gamma_values:
         svmclassifier = svm.SVC(kernel='rbf', C=c, gamma=gamma)
